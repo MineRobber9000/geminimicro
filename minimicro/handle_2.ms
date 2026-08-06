@@ -3,6 +3,5 @@ if meta[:6]=="image/" then
     view "body"
 end if
 if meta[:5]=="text/" then
-    // TODO: implement gemtext support
-    pageThrough file.readLines("body")
+    run "display_text"
 end if
