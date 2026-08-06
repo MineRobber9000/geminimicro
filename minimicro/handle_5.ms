@@ -12,4 +12,6 @@ if meta!="" then
     print meta
 end if
 
+utils.footer response.canonical
+
 run "error_controls"

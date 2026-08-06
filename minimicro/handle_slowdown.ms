@@ -13,6 +13,8 @@ else if globals.hasIndex("slowdowninfo") then
     slowdowninfo.current *= 2
 end if
 
+utils.footer response.canonical
+
 print
 _printMark "Press `b` to go back, otherwise, please wait..."
 t1 = time

@@ -5,4 +5,6 @@ print
 print "Here's where the server *wants* you to go:", " "
 print meta
 
+utils.footer response.canonical
+
 run "error_controls"
