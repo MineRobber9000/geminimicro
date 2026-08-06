@@ -90,6 +90,12 @@ actions[" "] = function // do something *like* the default actions but not quite
 end function
 
 actions.b = function // bookmark
+    if response.canonical.indexOf("chrome://bookmarks/")==0 then
+        utils.footer "Yo, dawg..."
+        wait 3
+        utils.footer response.canonical[:66]
+        return
+    end if
     bookmarks_path = utils.PREFIX+"/chrome/homepage/bookmarks.gmi"
     bookmarks = file.readLines(bookmarks_path)
     for bookmark in bookmarks
