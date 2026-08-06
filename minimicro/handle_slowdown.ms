@@ -8,7 +8,7 @@ if meta!="" then
 end if
 
 if (not globals.hasIndex("slowdowninfo")) or slowdowninfo.url!=URL then
-    globals.slowdowninfo = {"url": URL, "wait": 1}
+    globals.slowdowninfo = {"url": URL, "current": 1}
 else if globals.hasIndex("slowdowninfo") then
     slowdowninfo.current *= 2
 end if
