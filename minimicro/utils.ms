@@ -191,6 +191,7 @@ actions.r = function
 end function
 
 actions[char(27)] = function
+    clear
     exit
 end function
 
