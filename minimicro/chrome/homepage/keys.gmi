@@ -1,0 +1,20 @@
+# Key bindings
+
+## In general
+
+* Space - navigate by URL or link number
+* `<`/`,` - go back
+* `>`/`.` - go forward
+* `r` - reload page
+
+## Text specific
+
+* Up arrow - move up
+* Down arrow/Enter key - move down
+* `q` - page up
+* `a` - page down
+* `b` - bookmark
+
+### Gemtext specific
+
+* `1` through `0` - open the link with the corresponding number (`0` opens link 10)

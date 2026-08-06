@@ -51,9 +51,13 @@ end function
 // join a relative URL to a current one
 joinURL = function(url, relative)
     if relative.indexOf("//")!=null then
+        url_parsed = parseUrl(url)
         if relative.indexOf("//")==0 then
-            relative = "gemini:"+relative
+            relative = url_parsed.protocol+":"+relative
         end if
+        relative_parsed = parseUrl(relative)
+        // prevent linking to chrome:// pages from outside chrome://
+        if relative_parsed.protocol=="chrome" and url_parsed.protocol!="chrome" then return url
         return relative
     end if
     parsed = parseUrl(url)
@@ -89,8 +93,26 @@ gemini_url_to_proxy = function(url)
     return PROXY+parsed.host+path
 end function
 
+// retrieves chrome:// resource
+PREFIX="/usr"
+if _sourceFile.indexOf("/usr2/")==0 then PREFIX="/usr2"
+requestChrome = function(parsed)
+    if not file.exists(file.child(PREFIX+"/chrome",parsed.host+".ms")) then
+        return {"header": "51 Invalid chrome page "+parsed.host, "body": (new RawData), "canonical": unparseURL(parsed)}
+    end if
+    env.importPaths.insert 0, PREFIX+"/chrome"
+    import parsed.host
+    response = locals[parsed.host].route(parsed.path, parsed.query, unparseURL(parsed))
+    env.importPaths.remove 0
+    return response
+end function
+
 // request gemini resource
 request = function(url)
+    parsed = parseUrl(url)
+    if parsed.protocol=="chrome" then
+        return requestChrome(parsed)
+    end if
     proxy_url = gemini_url_to_proxy(url)
     if proxy_url==null then return null
     resp = http.get(proxy_url)

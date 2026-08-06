@@ -1,0 +1,23 @@
+# About GeMiniMicro
+
+> (Separately: a Gemini browser for Mini Micro is a great idea, and would make anybody who writes it my hero of the week.)
+> ~ JoeStrout, March 22, 2026
+
+GeMiniMicro is a Gemini client for the Mini Micro. It utilizes a proxy server running on the local host (written in pure stdlib Python) to make Gemini connections on our behalf (owing to Mini Micro's lack of support for raw sockets, let alone TLS on raw sockets).
+
+## How to set up
+
+Alongside this client, you should have also received a proxy in the form of some Python files. Simply run `proxy.py` and wait for it to say something along the lines of "Serving HTTP on :: port 8000".
+
+Once that's finished, you should be all set to browse Geminispace! Here are some links to get you started.
+
+=> gemini://geminiprotocol.net/ Project Gemini (the protocol's main website)
+=> gemini://kennedy.gemi.dev/ Kennedy (Gemini search engine)
+=> gemini://tlgs.one/ "Totally Legit" Gemini Search (another Gemini search engine)
+=> gemini://antenna.michaelnordmeyer.com/ Antenna (blog aggregator)
+=> gemini://cosmos.skyjake.fi/ Cosmos (another aggregator)
+
+In addition, here are a couple Gemini "orbits" (fancy space-themed term for the Gemini equivalent of webrings).
+
+=> gemini://tilde.team/~khuxkm/leo/rand.cgi%3Fgemini%253A%252F%252Ftilde.team%252F~khuxkm%252Fleo%252F Random page from LEO
+=> gemini://raek.se/orbits/space-elevator/random Random page from Space Elevator

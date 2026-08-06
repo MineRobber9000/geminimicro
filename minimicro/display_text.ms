@@ -29,7 +29,7 @@ if meta[:11]=="text/gemini" then
     resolveURL = function(inp)
         if links.hasIndex(inp) then return links[inp]
         parsed = utils.parseUrl(inp)
-        if parsed.protocol=="gemini" then return inp
+        if parsed.protocol!="" then return inp
         return null
     end function
 end if
@@ -87,6 +87,25 @@ actions[" "] = function // do something *like* the default actions but not quite
     import "input_url"
     globals.remove "input_allow_escape"
     utils.footer response.canonical[:66] // restore footer
+end function
+
+actions.b = function // bookmark
+    bookmarks_path = utils.PREFIX+"/chrome/homepage/bookmarks.gmi"
+    bookmarks = file.readLines(bookmarks_path)
+    for bookmark in bookmarks
+        parts = bookmark.split(" ")
+        if len(parts)>=2 and parts[1]==response.canonical then
+            utils.footer "This page is already bookmarked..."
+            wait 3
+            utils.footer response.canonical[:66]
+            return
+        end if
+    end for
+    bookmarks.push "=> "+response.canonical+" "+response.canonical
+    file.writeLines bookmarks_path, bookmarks
+    utils.footer "Added bookmark!"
+    wait 3
+    utils.footer response.canonical[:66]
 end function
 
 actions.runActions

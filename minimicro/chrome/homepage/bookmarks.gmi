@@ -1,0 +1,5 @@
+=> gemini://geminiprotocol.net/ Project Gemini (the protocol's main website)
+=> gemini://kennedy.gemi.dev/ Kennedy (Gemini search engine)
+=> gemini://tlgs.one/ "Totally Legit" Gemini Search (another Gemini search engine)
+=> gemini://antenna.michaelnordmeyer.com/ Antenna (blog aggregator)
+=> gemini://cosmos.skyjake.fi/ Cosmos (another aggregator)

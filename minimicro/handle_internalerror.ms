@@ -1,4 +1,5 @@
-errors = {"nongemini": ["Non-Gemini Link", "Links to non-Gemini resources are outside the scope of this"+char(10)+"project.", true]}
+errors = {"nongemini": ["Non-Gemini Link", "Links to non-Gemini resources are outside the scope of this"+char(10)+"project.", true],
+"fileroutemissing": ["Huh?", "The chrome page you're visiting specifies that a file should be"+char(10)+"loaded here, but the file in question is missing.", true]}
 
 error = ["missingno", "no specification for error "+meta, false]
 if errors.hasIndex(meta) then error=errors[meta]

@@ -19,6 +19,10 @@ end function
 history.push = function
     if _history.len==0 or _history[-1].url!=current_url then
         _history.push history.getstate
+        if globals.hasIndex("_dont_save_body") then
+            _history[-1].remove "body"
+            globals.remove "_dont_save_body"
+        end if
     end if
     if _history.len>10 then
         _history[-11].remove "body" // don't store bodies past the last 10 links

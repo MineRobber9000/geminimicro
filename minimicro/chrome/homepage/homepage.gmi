@@ -1,0 +1,6 @@
+# GeMiniMicro
+
+=> //bookmarks/ Bookmarks
+
+=> about About GeMiniMicro
+=> keys Key bindings
