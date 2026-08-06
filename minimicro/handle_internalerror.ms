@@ -11,7 +11,7 @@ utils.footer response.canonical
 
 if error[2] then
     print
-    _printMark "Press `b` to go back, or space to navigate to a new URL."
+    _printMark "Press `<` to go back, or space to navigate to a new URL..."
     current_url = URL
     actions = new utils.actions
     actions.r = null

@@ -16,7 +16,7 @@ end if
 utils.footer response.canonical
 
 print
-_printMark "Press `b` to go back, otherwise, please wait..."
+_printMark "Press `<` to go back, otherwise, please wait..."
 t1 = time
 while true
     while (not key.available) and (time-t1)<slowdowninfo.current
@@ -24,6 +24,6 @@ while true
     end while
     if (time-t1)>=slowdowninfo.current then run "startup"
     k = key.get
-    if k=="b" then run "back"
+    if k=="<" or k=="," then run "back"
     if k.code==27 then exit // escape
 end while

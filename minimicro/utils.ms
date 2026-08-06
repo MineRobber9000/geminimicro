@@ -153,17 +153,18 @@ actions.runActions = function
 end function
 
 // default actions (remove by setting to null)
-actions.b = function
+actions[","] = function
     run "back"
 end function
-actions[","] = @actions.b
+actions["<"] = @actions[","]
 
-actions.f = function
+actions["."] = function
     if forwards.len>0 then run "forward"
 end function
-actions["."] = @actions.f
+actions[">"] = @actions["."]
 
 actions.r = function
+    URL = response.canonical
     run "startup"
 end function
 
