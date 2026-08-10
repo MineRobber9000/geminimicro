@@ -15,7 +15,7 @@ parser = new textparser.TextParser
 if meta[:11]=="text/gemini" then
     parser = new textparser.GemTextParser
     parser.handle_link_line = function(n, link)
-        outer.links[n+""]=utils.joinURL(URL, link)
+        outer.links[n+""]=utils.joinURL(response.canonical, link)
         if n<11 then
             if n==10 then n=0
             outer.actions[n+""] = function
